@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joculet Paul</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game">
+        <div id="bg1" class="background"></div>
+        <div id="character"></div>
+
+        <!-- BUTTON SCRISORI -->
+        <button class="butonScrisori" id="ScrInch1" style="cursor: pointer;">
+            <img src="scrisoareInchisa.png" alt="letter" />
+        </button>
+
+        <button class="butonScrisori" id="ScrInch2">
+            <img src="scrisoareInchisa.png" alt="letter" />
+        </button>
+
+        <button class="butonScrisori" id="ScrInch3">
+            <img src="scrisoareInchisa.png" alt="letter" />
+        </button>
+
+        <button class="butonScrisori" id="ScrInch4">
+            <img src="scrisoareInchisa.png" alt="letter" />
+        </button>
+
+        <button class="butonScrisori" id="ScrInch5">
+            <img src="scrisoareInchisa.png" alt="letter" />
+        </button>
+    </div>
+
+    <!-- SCRISORI DESCHISE -->
+    <!-- Container pentru scrisoarea deschisă -->
+    <div id="scrisoareModal" style="display:none;">
+        <span id="inchideScrisoare">&times;</span>
+        <img id="scrisoareImagine" src="" alt="scrisoare deschisa">
+    </div>
+
+    <!-- Elementul care reprezintă ochelarii magici -->
+    <div id="ochelariMagici" style="display: none; position: absolute; width: 50px; height: 50px; background-image: url('ochelariMagici.png'); background-size: contain; top: 3px; left: 0;"></div>
+
+    <!-- BUTTON CUSTOMIZER -->
+    <button id="openCustomizer">Mini Paul</button>
+
+    <!-- OVERLAY -->
+    <div id="customizerOverlay" style="z-index: 9997;"></div>
+
+    <!-- PANEL CUSTOMIZER -->
+    <div id="customizerPanel" style="z-index: 9998;">
+        <span id="closeCustomizer">✖</span>
+        <div class="customizerContent">
+            <button id="prevSkin">◀</button>
+            <div id="skinPreview"></div>
+            <button id="nextSkin">▶</button>
+        </div>
+    </div>
+
+    <!-- WELCOME SCREEN -->
+    <div id="welcomeOverlay" style="z-index: 9999;">
+        <img id="welcomeImg" src="welcome.png" alt="Welcome" />
+        <button id="startGameBtn" style="transform: translateY(-120%);">Start</button>
+    </div>
+
+    <!-- COORDONATE -->
+    <div id="-l">x: 0, y: 0</div>
+
+    <!-- AUDIO -->
+    <audio id="bgMusic" src="christmas-music.mp3" loop></audio>
+    <audio id="uiClick" src="ui-click.mp3"></audio>
+    <audio id="uiHover" src="ui-hover.mp3"></audio>
+
+    <!-- ================= REWARD FULLSCREEN ================= -->
+    <div id="rewardOverlay">
+        <div id="rewardBox">
+            <span id="closeReward">✖</span>
+            <img src="claimImg.png" alt="Reward Fullscreen">
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+
+    </div>
+
+</body>
+</html>

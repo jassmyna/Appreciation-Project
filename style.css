@@ -1,0 +1,270 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: black;
+  height: 100%;
+  font-family: sans-serif;
+}
+
+#game {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  pointer-events: none;  /* ← ADAUGĂ AICI */
+}
+
+#bg1 {
+  z-index: 1;
+  pointer-events: none;  /* ← ADAUGĂ AICI */
+}
+
+/* #bg2 este creat în JS, dar putem asigura și aici */
+#bg2 {
+  pointer-events: none;  /* ← ADAUGĂ AICI */
+}
+
+
+#character {
+  position: absolute;
+  width: 35%;
+  height: 40%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  z-index: 999;
+}
+
+/* ---------------------- BUTTON SCRISORI ---------------------- */
+.butonScrisori {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -110%);
+  z-index: 100; 
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.butonScrisori img:hover{
+  cursor: pointer;
+}
+
+.butonScrisori img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+
+#scrisoareModal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#scrisoareModal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+#inchideScrisoare {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* ---------------------- BUTTON CUSTOMIZER ---------------------- */
+#openCustomizer {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-weight: bold;
+  z-index: 150;
+  display: none;
+  transition: background 0.2s;
+}
+
+#openCustomizer:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ---------------------- CUSTOMIZER ---------------------- */
+#customizerOverlay {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 100;
+}
+
+#customizerPanel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.85);
+  width: 500px;
+  max-width: 90%;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  display: none;
+  z-index: 101;
+  transition: 0.3s;
+}
+
+#customizerPanel.show {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#closeCustomizer {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: white;
+}
+
+.customizerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+#skinPreview {
+  width: 200px;
+  height: 200px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ---------------------- WELCOME ---------------------- */
+#welcomeOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+#welcomeOverlay img {
+  width: 80%;
+  max-width: 600px;
+  margin-bottom: 10px;
+}
+
+#welcomeOverlay button {
+  font-size: 1.3em;
+  padding: 12px 25px;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-weight: bold;
+}
+
+/* ---------------------- COORDONATE ---------------------- */
+#-l {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-family: monospace;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 999;
+}
+
+/* ================= REWARD FULLSCREEN ================= */
+#rewardOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  z-index: 10000;
+}
+
+#rewardOverlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#rewardBox {
+  position: fixed;
+  inset: 0;
+  transform: scale(1.1);
+  opacity: 0;
+  transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+#rewardOverlay.show #rewardBox {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#rewardBox img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+#closeReward {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+
